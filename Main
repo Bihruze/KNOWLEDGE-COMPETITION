@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class BilgiYarismasi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] sorular = {
+            "Türkiye'nin başkenti neresidir?",
+            "Java bir programlama dilidir. (evet/hayır)",
+            "Dünyanın en yüksek dağı hangisidir?",
+            "En küçük asal sayı kaçtır?",
+            "Güneş sisteminde kaç gezegen vardır?"
+        };
+
+        String[] cevaplar = {"Ankara", "evet", "Everest", "2", "8"};
+        int puan = 0;
+
+        for(int i = 0; i < sorular.length; i++) {
+            System.out.println(sorular[i]);
+            String kullaniciCevabi = scanner.nextLine();
+
+            if(kullaniciCevabi.equalsIgnoreCase(cevaplar[i])) {
+                puan += 20;
+                System.out.println("Doğru! Şu anki puanınız: " + puan);
+            } else {
+                System.out.println("Yanlış cevap. Yarışma bitti. Toplam puanınız: " + puan);
+                break;
+            }
+        }
+
+        System.out.println("Yarışma sona erdi. Toplam puanınız: " + puan);
+        scanner.close();
+    }
+}
